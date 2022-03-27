@@ -1,0 +1,7 @@
+@use './funciones' as f;
+
+@mixin bp($br) {
+  @media screen and (min-width: f.breaks($br)) {
+    @content;
+  }
+}

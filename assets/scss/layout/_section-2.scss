@@ -1,0 +1,36 @@
+@use '../abstract/mixin' as mx;
+@use '../abstract/variables' as v;
+
+.section-2 {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+
+  .about {
+    &-dark {
+      @include mx.bp('xl') {
+        justify-self: flex-start;
+      }
+    }
+    &-light {
+      @include mx.bp('xl') {
+        justify-self: flex-end;
+      }
+    }
+    width: 75%;
+    margin: 0 auto;
+    &-title {
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+    &-paragraph {
+      color: v.$Dark-Gray;
+    }
+  }
+
+  @include mx.bp('sm') {
+    grid-template-columns: 30% 40% 30%;
+  }
+}

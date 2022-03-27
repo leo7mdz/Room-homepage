@@ -1,0 +1,20 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Spartan', sans-serif;
+  font-size: 12px;
+  margin: 0;
+}

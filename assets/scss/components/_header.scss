@@ -1,0 +1,75 @@
+@use '../abstract/variables' as v;
+@use '../abstract/mixin' as mx;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 3rem;
+  padding-top: 2rem;
+  z-index: 100;
+  @include mx.bp('sm') {
+    justify-content: flex-start;
+  }
+
+  .menu-hamburger {
+    margin: 1rem;
+    @include mx.bp('sm') {
+      display: none;
+    }
+  }
+
+  .logo {
+    margin: auto;
+    @include mx.bp('sm') {
+      margin: 1rem;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+  margin-top: 0;
+  position: absolute;
+  top: 99%;
+  left: 0;
+  right: 0;
+  background-color: rgba(v.$Very-Dark-Gray, 0.7);
+  height: 50vh;
+  z-index: 100;
+  transition: clip-path 0.3s ease-in;
+
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  @include mx.bp('sm') {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    flex-direction: row;
+    height: inherit;
+    top: 0;
+    justify-content: flex-start;
+    background-color: transparent;
+    position: initial;
+    padding-top: 0.5rem;
+  }
+
+  &__item {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+  }
+
+  &__link {
+    color: v.$White;
+    text-decoration: none;
+  }
+}
+.menu-is-active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
